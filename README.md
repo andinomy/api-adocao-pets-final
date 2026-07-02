@@ -2,13 +2,13 @@
 
 Projeto da disciplina de Desenvolvimento de Serviços Web.
 
-## Descricao
+## Descrição
 
 API REST para cadastro de usuarios, cadastro de pets e adocao de animais usando login com JWT.
 
 O sistema tem dois tipos de usuario:
 
-- `admin`: pode gerenciar usuarios, pets e listar adocoes.
+- `admin`: pode gerenciar usuarios, pets e listar adoções.
 - `adopter`: pode ver o proprio perfil, editar o proprio perfil e adotar pets.
 
 ## Tecnologias
@@ -39,7 +39,7 @@ DB_NAME=pets_db
 JWT_SECRET=segredo_pets
 ```
 
-Crie o banco no MySQL:
+Crie um banco no MySQL:
 
 ```bash
 mysql -u root -p < src/database/schema.sql
@@ -51,7 +51,7 @@ mysql -u root -p < src/database/schema.sql
 npm run dev
 ```
 
-Para rodar o ESLint:
+Para rodar ESLint:
 
 ```bash
 npm run lint
@@ -82,7 +82,7 @@ Tabelas criadas:
 - `pets`: id, name, age, species, size, status, description.
 - `adoptions`: id, user_id, pet_id, adoption_date.
 
-## Rotas publicas
+## Rotas públicas
 
 - `GET /`: testa se a API esta funcionando.
 - `GET /pets/available`: lista pets disponiveis.
@@ -91,7 +91,7 @@ Tabelas criadas:
 
 ## Rotas protegidas
 
-Usuarios:
+Usuários:
 
 - `GET /users`: lista usuarios, somente admin.
 - `GET /users/:id`: admin ou o proprio usuario.
@@ -106,7 +106,7 @@ Pets:
 - `PUT /pets/:id`: atualiza pet, somente admin.
 - `DELETE /pets/:id`: remove pet disponivel, somente admin.
 
-Adocoes:
+Adoções:
 
 - `GET /adoptions`: lista adocoes, somente admin.
 - `POST /adoptions`: adota um pet, somente adopter.
