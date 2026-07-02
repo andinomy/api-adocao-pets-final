@@ -1,0 +1,120 @@
+@baseUrl = http://localhost:3000
+@adminToken = cole_o_token_admin_aqui
+@adopterToken = cole_o_token_adopter_aqui
+
+### Testar API
+GET {{baseUrl}}/
+
+### Criar usuario admin
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "name": "Admin",
+  "email": "admin@email.com",
+  "password": "123456",
+  "phone": "51999999999",
+  "role": "admin"
+}
+
+### Criar usuario adopter
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "name": "Mylena",
+  "email": "mylena@email.com",
+  "password": "123456",
+  "phone": "51888888888"
+}
+
+### Login admin
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "admin@email.com",
+  "password": "123456"
+}
+
+### Login adopter
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "mylena@email.com",
+  "password": "123456"
+}
+
+### Listar usuarios - admin
+GET {{baseUrl}}/users
+Authorization: Bearer {{adminToken}}
+
+### Buscar usuario por id - admin ou proprio usuario
+GET {{baseUrl}}/users/1
+Authorization: Bearer {{adminToken}}
+
+### Atualizar usuario - admin ou proprio usuario
+PUT {{baseUrl}}/users/2
+Authorization: Bearer {{adopterToken}}
+Content-Type: application/json
+
+{
+  "name": "Mylena atualizado",
+  "phone": "51777777777"
+}
+
+### Remover usuario - admin
+DELETE {{baseUrl}}/users/2
+Authorization: Bearer {{adminToken}}
+
+### Cadastrar pet - admin
+POST {{baseUrl}}/pets
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "name": "Caramelo",
+  "age": 3,
+  "species": "dog",
+  "size": "large",
+  "description": "Muito dócil ótimo para famílias"
+}
+
+### Listar pets disponiveis - publico
+GET {{baseUrl}}/pets/available
+
+### Listar todos os pets - admin
+GET {{baseUrl}}/pets
+Authorization: Bearer {{adminToken}}
+
+### Buscar pet por id - admin
+GET {{baseUrl}}/pets/1
+Authorization: Bearer {{adminToken}}
+
+### Atualizar pet - admin
+PUT {{baseUrl}}/pets/1
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "age": 4,
+  "description": "muito carinhoso e gosta de crianças"
+}
+
+### Remover pet disponivel - admin
+DELETE {{baseUrl}}/pets/1
+Authorization: Bearer {{adminToken}}
+
+### Adotar pet - adopter
+POST {{baseUrl}}/adoptions
+Authorization: Bearer {{adopterToken}}
+Content-Type: application/json
+
+{
+  "pet_id": 1
+}
+
+### Listar adocoes - admin
+GET {{baseUrl}}/adoptions
+Authorization: Bearer {{adminToken}}

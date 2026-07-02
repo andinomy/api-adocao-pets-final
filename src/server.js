@@ -1,13 +1,9 @@
-const express = require('express');
+require('dotenv').config({ quiet: true });
 
-const app = express();
+const app = require('./app');
 
-app.get('/', (req, res) => {
-  res.json({ mensagem: 'API funcionando' });
-});
-
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log('Servidor rodando na porta 3000');
+  console.log(`Servidor rodando na porta ${PORT}`);
 });

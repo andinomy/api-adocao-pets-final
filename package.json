@@ -1,14 +1,17 @@
 {
   "name": "api-adocao-pets",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "API REST para adocao de pets",
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
